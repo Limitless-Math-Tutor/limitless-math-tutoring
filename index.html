@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +8,12 @@
   <style>
     .shadow-soft { box-shadow: 0 10px 25px rgba(0,0,0,.08); }
     .scrollbar-hide::-webkit-scrollbar { display:none; } .scrollbar-hide{ -ms-overflow-style:none; scrollbar-width:none; }
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal{opacity:0; transform: translateY(12px); transition: opacity .45s ease, transform .45s ease;}
+      .reveal-in{opacity:1; transform: none;}
+      .hover-float{transition: transform .25s ease, box-shadow .25s ease;}
+      .hover-float:hover{transform: translateY(-3px);}  
+    }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 text-slate-800">
@@ -15,6 +21,12 @@
   <header class="sticky top-0 z-30 bg-white/70 backdrop-blur border-b">
     <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
       <a href="#" class="font-extrabold text-xl tracking-tight"><span class="text-indigo-600">Limitless</span> Tutoring</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:text-indigo-600">Services</a>
+        <a href="#pricing" class="hover:text-indigo-600">Pricing</a>
+        <a href="#about" class="hover:text-indigo-600">About</a>
+        <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+      </nav>
       <button id="openBooking" class="px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft">Book now</button>
     </div>
   </header>
@@ -24,12 +36,12 @@
     <div class="mx-auto max-w-6xl px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
       <div>
         <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">K–8, Algebra, AP Precalculus & AP Calculus Tutoring</h1>
-        <p class="mt-4 text-slate-600 text-lg">Clear, step‑by‑step 1‑on‑1 lessons online via Zoom. Flexible scheduling • Grade‑focused results.</p>
+        <p class="mt-4 text-slate-600 text-lg">Clear, step-by-step 1-on-1 lessons online via Zoom. Flexible scheduling • Grade-focused results.</p>
         <div class="mt-6 flex gap-3">
           <button id="openBooking2" class="px-5 py-3 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft">Book a session</button>
           <a href="#pricing" class="px-5 py-3 rounded-2xl border hover:bg-white shadow-soft">View pricing</a>
         </div>
-        <p class="mt-3 text-sm text-slate-500">Online only • 150+ hours tutoring experience • Miami‑Dade & Broward</p>
+        <p class="mt-3 text-sm text-slate-500">Online only • 150+ hours tutoring experience • Miami-Dade & Broward</p>
       </div>
       <div class="rounded-3xl p-6 shadow-soft bg-white">
         <h3 class="text-lg font-semibold">Quick Stats</h3>
@@ -51,12 +63,12 @@
   <section id="services" class="py-14 bg-white">
     <div class="mx-auto max-w-6xl px-4">
       <h2 class="text-2xl font-bold">What I teach</h2>
-      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-        <div class="rounded-2xl border p-6 shadow-soft"><h3 class="font-semibold">K–8 Math</h3><p class="mt-2 text-sm text-slate-600">Number sense, fractions/decimals, word problems, foundations.</p></div>
-        <div class="rounded-2xl border p-6 shadow-soft"><h3 class="font-semibold">Algebra I</h3><p class="mt-2 text-sm text-slate-600">Functions, linear systems, quadratics basics.</p></div>
-        <div class="rounded-2xl border p-6 shadow-soft"><h3 class="font-semibold">Algebra II</h3><p class="mt-2 text-sm text-slate-600">Polynomials, exponentials/logs, rational functions.</p></div>
-        <div class="rounded-2xl border p-6 shadow-soft"><h3 class="font-semibold">AP Precalculus</h3><p class="mt-2 text-sm text-slate-600">Trig, identities, complex numbers, limits, sequences.</p></div>
-        <div class="rounded-2xl border p-6 shadow-soft"><h3 class="font-semibold">AP Calculus AB/BC</h3><p class="mt-2 text-sm text-slate-600">Derivatives, integrals, series, FRQ strategy.</p></div>
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal><h3 class="font-semibold">K–8 Math</h3><p class="mt-2 text-sm text-slate-600">Number sense, fractions/decimals, word problems, foundations.</p></div>
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal><h3 class="font-semibold">Algebra I</h3><p class="mt-2 text-sm text-slate-600">Functions, linear systems, quadratics basics.</p></div>
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal><h3 class="font-semibold">Algebra II</h3><p class="mt-2 text-sm text-slate-600">Polynomials, exponentials/logs, rational functions.</p></div>
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal><h3 class="font-semibold">AP Precalculus</h3><p class="mt-2 text-sm text-slate-600">Trig, identities, complex numbers, limits, sequences.</p></div>
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal><h3 class="font-semibold">AP Calculus AB</h3><p class="mt-2 text-sm text-slate-600">Derivatives, integrals, series, FRQ strategy.</p></div>
       </div>
     </div>
   </section>
@@ -65,9 +77,9 @@
   <section id="pricing" class="py-14">
     <div class="mx-auto max-w-6xl px-4">
       <h2 class="text-2xl font-bold">Pricing</h2>
-      <div class="mt-6 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div class="mt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
         <!-- K–8 -->
-        <div class="rounded-2xl border p-6 shadow-soft">
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal>
           <div class="text-sm text-slate-500">K–8 Math</div>
           <div class="mt-2 inline-flex items-center gap-2 rounded-full bg-green-50 text-green-700 text-xs font-semibold px-3 py-1">First session FREE 🎉</div>
           <div class="mt-1 text-3xl font-extrabold">$35<span class="text-base font-medium text-slate-500">/hr</span></div>
@@ -79,7 +91,7 @@
           <button class="mt-5 px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft" data-book data-subject="K–8 Math">Book K–8</button>
         </div>
         <!-- Algebra I -->
-        <div class="rounded-2xl border p-6 shadow-soft">
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal>
           <div class="text-sm text-slate-500">Algebra I</div>
           <div class="mt-2 inline-flex items-center gap-2 rounded-full bg-green-50 text-green-700 text-xs font-semibold px-3 py-1">First session FREE 🎉</div>
           <div class="mt-1 text-3xl font-extrabold">$35<span class="text-base font-medium text-slate-500">/hr</span></div>
@@ -91,7 +103,7 @@
           <button class="mt-5 px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft" data-book data-subject="Algebra I">Book Algebra I</button>
         </div>
         <!-- Algebra II -->
-        <div class="rounded-2xl border p-6 shadow-soft">
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal>
           <div class="text-sm text-slate-500">Algebra II</div>
           <div class="mt-2 inline-flex items-center gap-2 rounded-full bg-green-50 text-green-700 text-xs font-semibold px-3 py-1">First session FREE 🎉</div>
           <div class="mt-1 text-3xl font-extrabold">$35<span class="text-base font-medium text-slate-500">/hr</span></div>
@@ -103,33 +115,32 @@
           <button class="mt-5 px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft" data-book data-subject="Algebra II">Book Algebra II</button>
         </div>
         <!-- AP Precalculus -->
-        <div class="rounded-2xl border p-6 shadow-soft">
+        <div class="rounded-2xl border p-6 shadow-soft hover-float" data-reveal>
           <div class="text-sm text-slate-500">AP Precalculus</div>
           <div class="mt-2 inline-flex items-center gap-2 rounded-full bg-green-50 text-green-700 text-xs font-semibold px-3 py-1">First session FREE 🎉</div>
           <div class="mt-1 text-3xl font-extrabold">$40<span class="text-base font-medium text-slate-500">/hr</span></div>
           <ul class="mt-4 text-sm space-y-2 list-disc pl-5">
-            <li>Exam‑style practice</li>
+            <li>Exam-style practice</li>
             <li>Unit checklists & pacing</li>
-            <li>FRQ‑style breakdowns</li>
+            <li>FRQ-style breakdowns</li>
           </ul>
           <button class="mt-5 px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft" data-book data-subject="AP Precalculus">Book AP Precalc</button>
         </div>
-        <!-- AP Calculus AB/BC -->
-        <div class="rounded-2xl border p-6 shadow-soft md:col-span-2 xl:col-span-4">
+        <!-- AP Calculus AB -->
+        <div class="rounded-2xl border p-6 shadow-soft hover-float md:col-span-2 xl:col-span-3" data-reveal>
           <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <div class="text-sm text-slate-500">AP Calculus AB/BC</div>
+              <div class="text-sm text-slate-500">AP Calculus AB</div>
               <div class="mt-2 inline-flex items-center gap-2 rounded-full bg-green-50 text-green-700 text-xs font-semibold px-3 py-1">First session FREE 🎉</div>
               <div class="mt-1 text-3xl font-extrabold">$45<span class="text-base font-medium text-slate-500">/hr</span></div>
             </div>
             <div>
               <button class="px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft" data-book data-subject="Calculus AB">Book Calc AB</button>
-              <button class="ml-2 px-4 py-2 rounded-xl border hover:bg-white shadow-soft" data-book data-subject="Calculus BC">Book Calc BC</button>
             </div>
           </div>
           <ul class="mt-4 text-sm space-y-2 list-disc pl-5">
             <li>Derivatives & integrals, applications</li>
-            <li>Series (BC) & advanced techniques</li>
+            <li>Series & advanced techniques</li>
             <li>FRQ strategy & time management</li>
           </ul>
         </div>
@@ -137,46 +148,47 @@
     </div>
   </section>
 
-  <!-- REVIEWS (Horizontal scroll) -->
-  <section id="reviews" class="py-14 bg-white">
-    <div class="mx-auto max-w-6xl px-4">
-      <h2 class="text-2xl font-bold">Sample feedback</h2>
-      <p class="mt-1 text-sm text-slate-500">Here are example comments that reflect the kind of feedback students and parents often share. Real testimonials coming soon.</p>
-      <div class="mt-6 overflow-x-auto scrollbar-hide">
-        <div class="flex gap-4 snap-x snap-mandatory">
-          <!-- Example review cards -->
-          <div class="min-w-[260px] snap-start rounded-2xl border p-5 shadow-soft hover-float" data-reveal>
-            <div class="text-yellow-500">★★★★★</div>
-            <p class="mt-2 text-sm">“Explains concepts step‑by‑step and makes math less stressful.”</p>
-            <div class="mt-3 text-xs text-slate-500">— Example Parent</div>
-          </div>
-          <div class="min-w-[260px] snap-start rounded-2xl border p-5 shadow-soft hover-float" data-reveal>
-            <div class="text-yellow-500">★★★★★</div>
-            <p class="mt-2 text-sm">“Helps connect big ideas so they finally make sense.”</p>
-            <div class="mt-3 text-xs text-slate-500">— Example Student</div>
-          </div>
-          <div class="min-w-[260px] snap-start rounded-2xl border p-5 shadow-soft hover-float" data-reveal>
-            <div class="text-yellow-500">★★★★★</div>
-            <p class="mt-2 text-sm">“Organized lessons, patient explanations, and useful practice sets.”</p>
-            <div class="mt-3 text-xs text-slate-500">— Example Parent</div>
-          </div>
-          <div class="min-w-[260px] snap-start rounded-2xl border p-5 shadow-soft hover-float" data-reveal>
-            <div class="text-yellow-500">★★★★★</div>
-            <p class="mt-2 text-sm">“Supportive tutoring that builds confidence over time.”</p>
-            <div class="mt-3 text-xs text-slate-500">— Example Student</div>
-          </div>
-          <div class="min-w-[260px] snap-start rounded-2xl border p-5 shadow-soft hover-float" data-reveal>
-            <div class="text-yellow-500">★★★★★</div>
-            <p class="mt-2 text-sm">“Communicates clearly with parents and tracks progress well.”</p>
-            <div class="mt-3 text-xs text-slate-500">— Example Parent</div>
-          </div>
+  <!-- ABOUT -->
+  <section id=\"about\" class=\"py-16\">
+    <div class=\"mx-auto max-w-4xl px-4\">
+      <h2 class=\"text-2xl font-bold\">About me</h2>
+      <p class=\"mt-4 text-slate-600\">I’m <span class=\"font-semibold\">Carlos Ramirez</span> — a high school senior passionate about tutoring math and helping students grow. I’m currently taking <span class=\"font-semibold\">Calculus II</span> and have passed all my previous math courses, including earning a <span class=\"font-semibold\">5 on AP Calculus AB</span>. Beyond academics, I’m active in <span class=\"font-semibold\">DECA</span> with multiple achievements, and I’ve led teams as a long‑time <span class=\"font-semibold\">soccer goalkeeper</span>.</p>
+      <div class=\"mt-6 grid sm:grid-cols-2 gap-6\">
+        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
+          <h3 class=\"font-semibold\">How I teach</h3>
+          <ul class=\"mt-3 text-sm list-disc pl-5 space-y-2\">
+            <li>Break problems into small, clear steps.</li>
+            <li>Connect concepts with visuals & patterns.</li>
+            <li>Target weak spots with custom practice sets.</li>
+            <li>End each session with a quick recap & plan.</li>
+          </ul>
+        </div>
+        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
+          <h3 class=\"font-semibold\">What students get</h3>
+          <ul class=\"mt-3 text-sm list-disc pl-5 space-y-2\">
+            <li>Zoom sessions (screen share + whiteboard).</li>
+            <li>Notes & practice PDF after sessions.</li>
+            <li>Homework/test prep strategies.</li>
+            <li>Parent progress updates when requested.</li>
+          </ul>
+        </div>
+        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
+          <h3 class=\"font-semibold\">Focus areas</h3>
+          <ul class=\"mt-3 text-sm list-disc pl-5 space-y-2\">
+            <li>K–8: number sense, fractions/decimals, word problems.</li>
+            <li>Algebra I/II: functions, quadratics, exponentials/logs.</li>
+            <li>AP Precalc: trig, identities, sequences & limits.</li>
+            <li>AP Calc AB: derivatives, integrals, series, FRQs.</li>
+          </ul>
+        </div>
+        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
+          <h3 class=\"font-semibold\">Let’s connect</h3>
+          <p class=\"mt-3 text-sm text-slate-600\">Have questions or want to see if I’m a good fit? Tap below and I’ll reply on WhatsApp.</p>
+          <a href=\"https://wa.me/13057622046?text=Hi%20Carlos%2C%20I%27d%20like%20to%20learn%20more%20about%20tutoring\" target=\"_blank\" class=\"mt-4 inline-block px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft\">Message me</a>
         </div>
       </div>
     </div>
-    <div class=\"mt-6 text-center\">
-        <a href=\"https://wa.me/13057622046?text=I'd%20like%20to%20leave%20a%20review%20for%20Limitless%20Tutoring\" target=\"_blank\" class=\"inline-block px-5 py-3 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft\">Leave a Review</a>
-      </div>
-    </section>
+  </section>
 
   <!-- FAQ -->
   <section id="faq" class="py-16">
@@ -186,115 +198,4 @@
         <details class="rounded-2xl border p-4"><summary class="font-semibold">Where do sessions happen?</summary><p class="mt-2 text-sm text-slate-600">All tutoring is online via Zoom. I’ll send the link after booking.</p></details>
         <details class="rounded-2xl border p-4"><summary class="font-semibold">Is the first session really free?</summary><p class="mt-2 text-sm text-slate-600">Yes — your very first session is a free trial to make sure the fit is right. Standard hourly rates apply after that.</p></details>
         <details class="rounded-2xl border p-4"><summary class="font-semibold">Do you offer packages?</summary><p class="mt-2 text-sm text-slate-600">No packages — simple hourly pricing by subject.</p></details>
-        <details class="rounded-2xl border p-4"><summary class="font-semibold">What’s your cancellation policy?</summary><p class="mt-2 text-sm text-slate-600">Free reschedule with 12+ hours notice. Late cancellations are billed at 50%.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING MODAL -->
-  <div id="bookingModal" class="fixed inset-0 hidden items-center justify-center bg-black/40 p-4">
-    <div class="w-full max-w-xl bg-white rounded-2xl p-6 shadow-soft relative">
-      <button id="closeBooking" class="absolute right-3 top-3 text-slate-500 hover:text-slate-700">✕</button>
-      <h3 class="text-xl font-bold">Book a session</h3>
-      <form id="bookingForm" class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div><label class="text-sm">Student name</label><input required name="name" class="mt-1 w-full rounded-xl border p-3" placeholder="First & last" /></div>
-        <div><label class="text-sm">Email</label><input required type="email" name="email" class="mt-1 w-full rounded-xl border p-3" placeholder="name@email.com" /></div>
-        <div><label class="text-sm">Phone</label><input required name="phone" class="mt-1 w-full rounded-xl border p-3" placeholder="(###) ###‑####" /></div>
-        <div><label class="text-sm">Subject</label>
-          <select required name="subject" class="mt-1 w-full rounded-xl border p-3">
-            <option value="K–8 Math">K–8 Math</option>
-            <option value="Algebra I">Algebra I</option>
-            <option value="Algebra II">Algebra II</option>
-            <option value="AP Precalculus">AP Precalculus</option>
-            <option value="Calculus AB">Calculus AB</option>
-            <option value="Calculus BC">Calculus BC</option>
-          </select>
-        </div>
-        <div class="grid grid-cols-2 gap-3 md:col-span-2">
-          <div><label class="text-sm">Date</label><input required type="date" name="date" class="mt-1 w-full rounded-xl border p-3" /></div>
-          <div><label class="text-sm">Start time</label><input required type="time" name="time" class="mt-1 w-full rounded-xl border p-3" /></div>
-        </div>
-        <div class="md:col-span-2"><label class="text-sm">What would you like help with?</label><textarea name="notes" rows="3" class="mt-1 w-full rounded-xl border p-3" placeholder="Upcoming quiz, topics, struggles…"></textarea></div>
-        <div class="md:col-span-2 flex items-center justify-between mt-2">
-          <div class="text-xs text-slate-500">First session is FREE. Future sessions billed at the listed hourly rate.</div>
-          <button class="px-5 py-3 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft" type="submit">Request booking</button>
-        </div>
-      </form>
-      <p id="successMsg" class="hidden mt-4 text-green-700 bg-green-50 border border-green-200 rounded-xl p-3 text-sm">Request sent! I’ll reply shortly. A WhatsApp chat will open now—hit send so I get your details instantly.</p>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="py-10 border-t">
-    <div class="mx-auto max-w-6xl px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-sm text-slate-500">© <span id="year"></span> Limitless Tutoring — Carlos Ramirez</p>
-      <div class="text-sm text-slate-500">WhatsApp: <a class="underline" href="#" id="waFooter">+1 305 762 2046</a></div>
-    </div>
-  </footer>
-
-  <script>
-    // CONFIG
-    const WHATSAPP_NUMBER = "+1 305 762 2046";
-
-    // UI refs
-    const modal = document.getElementById('bookingModal');
-    const openBtns = [document.getElementById('openBooking'), document.getElementById('openBooking2')].filter(Boolean);
-    const closeBtn = document.getElementById('closeBooking');
-    const form = document.getElementById('bookingForm');
-    const successMsg = document.getElementById('successMsg');
-    const waFooter = document.getElementById('waFooter');
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function openModal(){ modal.classList.remove('hidden'); modal.classList.add('flex'); }
-    function closeModal(){ modal.classList.add('hidden'); }
-
-    openBtns.forEach(btn => btn.addEventListener('click', openModal));
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-    // Pricing buttons prefill & open modal
-    document.querySelectorAll('[data-book]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const subject = e.currentTarget.getAttribute('data-subject') || '';
-        const subjectEl = form.querySelector('[name="subject"]');
-        if (subject && subjectEl) subjectEl.value = subject;
-        openModal();
-      });
-    });
-
-    function openWhatsApp(payload){
-      const message = `Tutoring request:%0A`+
-        `Student: ${payload.name}%0A`+
-        `Subject: ${payload.subject}%0A`+
-        `When: ${payload.date} at ${payload.time}%0A`+
-        (payload.notes?`Notes: ${payload.notes}%0A`:``)+
-        `Email: ${payload.email}%0A`+
-        `Phone: ${payload.phone}`;
-      const clean = WHATSAPP_NUMBER.replace(/[^+\d]/g, '');
-      window.open(`https://wa.me/${clean}?text=${message}`, '_blank');
-    }
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      // simple future check
-      const dt = new Date(`${data.date}T${data.time}`);
-      if (isNaN(dt.getTime()) || dt < new Date()) { alert('Please choose a future date/time.'); return; }
-      openWhatsApp(data);
-      successMsg.classList.remove('hidden');
-      // store contact for convenience
-      ['name','email','phone'].forEach(k => localStorage.setItem(`tutor_${k}`, data[k]||''));
-    });
-
-    // Prefill contact
-    ['name','email','phone'].forEach(k => {
-      const el = form.querySelector(`[name="${k}"]`);
-      const v = localStorage.getItem(`tutor_${k}`);
-      if (el && v) el.value = v;
-    });
-
-    waFooter.addEventListener('click', (e)=>{ e.preventDefault(); const clean = WHATSAPP_NUMBER.replace(/[^+\d]/g, ''); window.open(`https://wa.me/${clean}`, '_blank'); });
-  </script>
-</body>
-</html>
+        <details class="rounded-2xl border p-4"><summary class="font-semibold">What’s your cancellation policy?</summary><p class="mt-2 text-sm text-slate-600">Free reschedule with 12+ hours notice. Late cancellations are billed at 50%.</p></
