@@ -14,6 +14,7 @@
       .hover-float{transition: transform .25s ease, box-shadow .25s ease;}
       .hover-float:hover{transform: translateY(-3px);}  
     }
+      .anchor{scroll-margin-top:88px;}
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 text-slate-800">
@@ -21,13 +22,25 @@
   <header class="sticky top-0 z-30 bg-white/70 backdrop-blur border-b">
     <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
       <a href="#" class="font-extrabold text-xl tracking-tight"><span class="text-indigo-600">Limitless</span> Tutoring</a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
+      <!-- Desktop nav -->
+      <nav id="navLinks" class="hidden md:flex items-center gap-6 text-sm">
         <a href="#services" class="hover:text-indigo-600">Services</a>
         <a href="#pricing" class="hover:text-indigo-600">Pricing</a>
-        <a href="#about" class="hover:text-indigo-600">About</a>
         <a href="#faq" class="hover:text-indigo-600">FAQ</a>
       </nav>
-      <button id="openBooking" class="px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft">Book now</button>
+      <div class="flex items-center gap-2">
+        <button id="openBooking" class="hidden md:inline-block px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft">Book now</button>
+        <button id="menuBtn" class="md:hidden p-2 rounded-xl border">☰</button>
+      </div>
+    </div>
+    <!-- Mobile dropdown -->
+    <div id="mobileMenu" class="md:hidden hidden border-t bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#services" class="hover:text-indigo-600">Services</a>
+        <a href="#pricing" class="hover:text-indigo-600">Pricing</a>
+        <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+        <button id="openBookingMobile" class="mt-1 w-full px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft">Book now</button>
+      </div>
     </div>
   </header>
 
@@ -60,7 +73,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="py-14 bg-white">
+  <section id="services" class="anchor py-14 bg-white">
     <div class="mx-auto max-w-6xl px-4">
       <h2 class="text-2xl font-bold">What I teach</h2>
       <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -74,7 +87,7 @@
   </section>
 
   <!-- PRICING -->
-  <section id="pricing" class="py-14">
+  <section id="pricing" class="anchor py-14">
     <div class="mx-auto max-w-6xl px-4">
       <h2 class="text-2xl font-bold">Pricing</h2>
       <div class="mt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -148,54 +161,30 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id=\"about\" class=\"py-16\">
-    <div class=\"mx-auto max-w-4xl px-4\">
-      <h2 class=\"text-2xl font-bold\">About me</h2>
-      <p class=\"mt-4 text-slate-600\">I’m <span class=\"font-semibold\">Carlos Ramirez</span> — a high school senior passionate about tutoring math and helping students grow. I’m currently taking <span class=\"font-semibold\">Calculus II</span> and have passed all my previous math courses, including earning a <span class=\"font-semibold\">5 on AP Calculus AB</span>. Beyond academics, I’m active in <span class=\"font-semibold\">DECA</span> with multiple achievements, and I’ve led teams as a long‑time <span class=\"font-semibold\">soccer goalkeeper</span>.</p>
-      <div class=\"mt-6 grid sm:grid-cols-2 gap-6\">
-        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
-          <h3 class=\"font-semibold\">How I teach</h3>
-          <ul class=\"mt-3 text-sm list-disc pl-5 space-y-2\">
-            <li>Break problems into small, clear steps.</li>
-            <li>Connect concepts with visuals & patterns.</li>
-            <li>Target weak spots with custom practice sets.</li>
-            <li>End each session with a quick recap & plan.</li>
-          </ul>
-        </div>
-        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
-          <h3 class=\"font-semibold\">What students get</h3>
-          <ul class=\"mt-3 text-sm list-disc pl-5 space-y-2\">
-            <li>Zoom sessions (screen share + whiteboard).</li>
-            <li>Notes & practice PDF after sessions.</li>
-            <li>Homework/test prep strategies.</li>
-            <li>Parent progress updates when requested.</li>
-          </ul>
-        </div>
-        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
-          <h3 class=\"font-semibold\">Focus areas</h3>
-          <ul class=\"mt-3 text-sm list-disc pl-5 space-y-2\">
-            <li>K–8: number sense, fractions/decimals, word problems.</li>
-            <li>Algebra I/II: functions, quadratics, exponentials/logs.</li>
-            <li>AP Precalc: trig, identities, sequences & limits.</li>
-            <li>AP Calc AB: derivatives, integrals, series, FRQs.</li>
-          </ul>
-        </div>
-        <div class=\"rounded-2xl border p-5 shadow-soft hover-float\" data-reveal>
-          <h3 class=\"font-semibold\">Let’s connect</h3>
-          <p class=\"mt-3 text-sm text-slate-600\">Have questions or want to see if I’m a good fit? Tap below and I’ll reply on WhatsApp.</p>
-          <a href=\"https://wa.me/13057622046?text=Hi%20Carlos%2C%20I%27d%20like%20to%20learn%20more%20about%20tutoring\" target=\"_blank\" class=\"mt-4 inline-block px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow-soft\">Message me</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-16">
+  <section id="faq" class="anchor py-16">
     <div class="mx-auto max-w-4xl px-4">
       <h2 class="text-2xl font-bold">FAQ</h2>
       <div class="mt-6 space-y-4">
         <details class="rounded-2xl border p-4"><summary class="font-semibold">Where do sessions happen?</summary><p class="mt-2 text-sm text-slate-600">All tutoring is online via Zoom. I’ll send the link after booking.</p></details>
         <details class="rounded-2xl border p-4"><summary class="font-semibold">Is the first session really free?</summary><p class="mt-2 text-sm text-slate-600">Yes — your very first session is a free trial to make sure the fit is right. Standard hourly rates apply after that.</p></details>
         <details class="rounded-2xl border p-4"><summary class="font-semibold">Do you offer packages?</summary><p class="mt-2 text-sm text-slate-600">No packages — simple hourly pricing by subject.</p></details>
-        <details class="rounded-2xl border p-4"><summary class="font-semibold">What’s your cancellation policy?</summary><p class="mt-2 text-sm text-slate-600">Free reschedule with 12+ hours notice. Late cancellations are billed at 50%.</p></
+        <details class="rounded-2xl border p-4"><summary class="font-semibold">What’s your cancellation policy?</summary><p class="mt-2 text-sm text-slate-600">Free reschedule with 12+ hours notice. Late cancellations are billed at 50%.</p></details>
+      </div>
+    </div>
+  </section>
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+    mobileMenu?.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileMenu.classList.add('hidden')));
+    const openBookingMobile = document.getElementById('openBookingMobile');
+    if (openBookingMobile) openBookingMobile.addEventListener('click', ()=>{
+      mobileMenu.classList.add('hidden');
+      document.getElementById('openBooking')?.click();
+    });
+  </script>
+</body>
+</html>
